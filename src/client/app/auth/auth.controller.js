@@ -24,9 +24,6 @@
             auth.login(user);
             $state.go('dashboard');
         }
-
-        function logout(user){
-            auth.logout();
-        }
+       
     }
 })();
