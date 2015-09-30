@@ -19,6 +19,7 @@
 
 
         function login(user) {
+            console.log('in login and user is: ', user);
         	if(user){
         		$localStorage.user = user;
         	}
@@ -29,6 +30,7 @@
         }
 
          function getUser() {
+            console.log('$localStorage.user = ', $localStorage.user);
          	return $localStorage.user;
         }
     }
