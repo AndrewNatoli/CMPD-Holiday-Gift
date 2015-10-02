@@ -6,6 +6,8 @@
           <div ht-widget-header title="{{vm.title}}"></div>
           <div class="widget-content user">
             <h3>Set up new user</h3> 
+
+
       <div layout layout-sm="column">
         <md-input-container flex>
           <label>First name</label>
@@ -52,8 +54,11 @@
         </md-input-container>
         <md-input-container flex>
           <label>State</label>
-          <input ng-model="division.state">
-        </md-input-container>
+ <md-select ng-model="division.userState">
+          <md-option ng-repeat="state in division.states" value="{{state.abbrev}}">
+            {{state.abbrev}}
+          </md-option>
+        </md-select>        </md-input-container>
         <md-input-container flex>
           <label>Postal Code</label>
           <input ng-model="division.postalCode" placeholder="12345">
@@ -81,8 +86,11 @@
         </md-input-container>
         <md-input-container flex>
           <label>State</label>
-          <input ng-model="station.state">
-        </md-input-container>
+ <md-select ng-model="station.userState">
+          <md-option ng-repeat="state in station.states" value="{{state.abbrev}}">
+            {{state.abbrev}}
+          </md-option>
+        </md-select>        </md-input-container>
         <md-input-container flex>
           <label>Postal Code</label>
           <input ng-model="station.postalCode" placeholder="12345">
@@ -110,8 +118,11 @@
         </md-input-container>
         <md-input-container flex>
           <label>State</label>
-          <input ng-model="school.state">
-        </md-input-container>
+ <md-select ng-model="school.userState">
+          <md-option ng-repeat="state in school.states" value="{{state.abbrev}}">
+            {{state.abbrev}}
+          </md-option>
+        </md-select>        </md-input-container>
         <md-input-container flex>
           <label>Postal Code</label>
           <input ng-model="school.postalCode" placeholder="12345">
@@ -141,8 +152,11 @@
         </md-input-container>
         <md-input-container flex>
           <label>State</label>
-          <input ng-model="agency.state">
-        </md-input-container>
+ <md-select ng-model="agency.userState">
+          <md-option ng-repeat="state in agency.states" value="{{state.abbrev}}">
+            {{state.abbrev}}
+          </md-option>
+        </md-select>        </md-input-container>
         <md-input-container flex>
           <label>Postal Code</label>
           <input ng-model="agecy.postalCode" placeholder="12345">
