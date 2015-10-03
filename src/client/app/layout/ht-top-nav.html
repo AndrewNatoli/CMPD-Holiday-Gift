@@ -11,11 +11,11 @@
         <div class="pull-right navbar-logo">
             <ul class="nav navbar-nav pull-right">
                 
-                 <li ng-if="!!vm.navline.user">
+                 <li ng-if="!!vm.userLoggedIn">
                     Welcome {{vm.navline.user.userName}}!
                 </li>
 
-                <li ng-if="!!vm.navline.user">
+                <li>
                     <i class="material-icons">exit_to_app</i>
                     <a href="#" ng-click="vm.logout">Logout</a>
                 </li>

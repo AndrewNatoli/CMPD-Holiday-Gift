@@ -13,6 +13,7 @@ module.exports = function() {
         directory: './bower_components/',
         ignorePath: '../..'
     };
+    var bowerPath = './bower_components/';
     var nodeModules = 'node_modules';
 
     var config = {
@@ -150,6 +151,7 @@ module.exports = function() {
         var options = {
             files: [].concat(
                 bowerFiles,
+                bowerPath + 'ngstorage/ngStorage.js',
                 config.specHelpers,
                 clientApp + '**/*.module.js',
                 clientApp + '**/*.js',

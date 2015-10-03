@@ -23,6 +23,7 @@
         activate();
 
         function logout(){
+            console.log('logout clicked');
             auth.logout();
             $state.go('login');
         }
