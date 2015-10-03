@@ -39,5 +39,8 @@
       "main": "dist/css/bootstrap.css",
       "dist": "dist/js/bootstrap.js"
     }
+  },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
   }
 }
