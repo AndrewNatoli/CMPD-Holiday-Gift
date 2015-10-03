@@ -5,10 +5,30 @@
         .module('app.layout')
         .controller('ShellController', ShellController);
 
-    ShellController.$inject = ['$rootScope', '$timeout', 'config', 'logger', 'auth', '$state'];
+    ShellController.$inject = ['$rootScope', '$scope', '$timeout', 'config', 'logger', 'auth', '$state'];
     /* @ngInject */
-    function ShellController($rootScope, $timeout, config, logger, auth, state) {
-        var vm = this;
+    function ShellController($rootScope,  $scope, $timeout, config, logger, auth, $state) {
+        console.log('shell initiated');
+        var vm = $scope;
+
+        vm.userLoggedIn = !!auth.getUser();
+
+        //redirects user to default state if user is already logged in
+        $timeout(function(){
+            console.log('$state.current.name = ', $state.current.name);
+            var currState = $state.current.name;
+            if(currState == 'login' && vm.userLoggedIn){
+                $state.go('dashboard');
+            }
+        });
+
+        $rootScope.$on('$stateChangeStart', 
+            function(event, toState, toParams, fromState, fromParams){ 
+                if(toState.name === 'dashboard'){
+                    vm.userLoggedIn = !!auth.getUser();
+                }
+            });
+
         vm.busyMessage = 'Please wait ...';
         vm.isBusy = true;
         $rootScope.showSplash = true;
@@ -16,15 +36,14 @@
             title: config.appTitle,
             user: auth.getUser()
         };
-        vm.userLoggedIn = !!auth.getUser();
-        console.log('vm.userLoggedIn = ', vm.userLoggedIn);
+        // vm.foo = 'bar';
         vm.logout = logout;
 
         activate();
 
         function logout(){
-            console.log('logout clicked');
             auth.logout();
+            vm.userLoggedIn = null;
             $state.go('login');
         }
         function activate() {

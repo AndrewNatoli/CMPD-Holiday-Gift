@@ -20,7 +20,6 @@
         }
 
         function login(user){
-            console.log('login clicked');
             auth.login(user);
             $state.go('dashboard');
         }

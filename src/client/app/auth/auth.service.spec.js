@@ -6,8 +6,8 @@ describe('Auth service', function() {
 
   var authService;
 
-  beforeEach(inject(function(_authService_) {
-    authService = _authService_;
+  beforeEach(inject(function(_auth_) {
+    authService = _auth_;
   }));
 
    // beforeEach(function() {
