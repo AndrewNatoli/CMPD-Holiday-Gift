@@ -6,7 +6,7 @@
         .service('auth', Auth);
 
     Auth.$inject = ['$localStorage'];
-
+   
     /* @ngInject */
     function Auth($localStorage) {
 

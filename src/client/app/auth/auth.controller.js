@@ -5,11 +5,12 @@
         .module('app.auth')
         .controller('AuthController', AuthController);
 
-    AuthController.$inject = ['logger'];
+    AuthController.$inject = ['logger', '$state', 'auth'];
     /* @ngInject */
-    function AuthController(logger) {
+    function AuthController(logger, $state, auth) {
         var vm = this;
         vm.title = 'User Creation Form';
+
         vm.login = login;
         activate();
 
@@ -18,8 +19,10 @@
             logger.info('Activated Auth View');
         }
 
-        function login(){
-            console.log('login clicked');
+        function login(user){
+            auth.login(user);
+            $state.go('dashboard');
         }
+       
     }
 })();

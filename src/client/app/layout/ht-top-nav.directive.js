@@ -12,9 +12,9 @@
             controller: TopNavController,
             controllerAs: 'vm',
             restrict: 'EA',
-            scope: {
-                'navline': '='
-            },
+            // scope: {
+            //     'navline': '='
+            // },
             templateUrl: 'app/layout/ht-top-nav.html'
         };
 

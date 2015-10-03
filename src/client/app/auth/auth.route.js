@@ -16,7 +16,7 @@
             {
                 state: 'login',
                 config: {
-                    url: '/login',
+                    url: '/',
                     templateUrl: 'app/auth/login.html',
                     controller: 'AuthController',
                     controllerAs: 'vm',
