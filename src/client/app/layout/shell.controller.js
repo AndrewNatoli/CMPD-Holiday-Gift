@@ -15,9 +15,8 @@
 
         //redirects user to default state if user is already logged in
         $timeout(function(){
-            console.log('$state.current.name = ', $state.current.name);
             var currState = $state.current.name;
-            if(currState == 'login' && vm.userLoggedIn){
+            if(currState === 'login' && vm.userLoggedIn){
                 $state.go('dashboard');
             }
         });
