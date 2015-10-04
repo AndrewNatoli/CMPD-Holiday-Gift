@@ -4,10 +4,11 @@
       <div class="row">
         <div class="widget wviolet">
           <div ht-widget-header title="{{vm.title}}"></div>
+          <form name="userReg" ng-submit="vm.createAccount(user)" novalidate>
           <div class="widget-content user">
             <h3>Set up new user</h3>
             <md-content class="layout-padding md-default-theme">
-              <form name="userReg" ng-submit="register(user)" novalidate>
+              
                 <div layout layout-sm="column">
                   <md-input-container flex>
                     <label>First name</label>
@@ -154,10 +155,17 @@
                     <input ng-model="agecy.postalCode" placeholder="12345">
                   </md-input-container>
                 </div>
-              </form>
+
+              
+              
             </md-content>
             ​
-          </div>
+          </div> <!-- end of widget user -->
+             <div class="buttonWrapper">
+      <md-button class="md-raised md-primary" ng-disabled="userReg.$invalid" type="submit">Submit</md-button>
+      <md-button class="md-raised md-warn">Clear</md-button>
+    </div>
+          </form>
         </div>
         <div class="widget-foot">
           <div class="clearfix"></div>
@@ -165,9 +173,6 @@
       </div>
     </div>
     </div>
-    <div class="buttonWrapper">
-      <md-button class="md-raised md-primary" ng-disabled="userReg.$invalid">Submit</md-button>
-      <md-button class="md-raised md-warn">Clear</md-button>
-    </div>
+   
   </section>
 </section>
