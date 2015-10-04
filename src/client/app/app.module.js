@@ -7,6 +7,7 @@
         'app.auth',
         // 'app.admin',
         'app.userReg',
+        'app.nomination',
         'app.dashboard',
         'app.layout'
     ]);
