@@ -3,7 +3,9 @@
 
     angular.module('app.userReg', [
         'app.core',
-        'app.widgets'
+        'app.widgets',
+        'validation', 
+        'validation.rule'
       ]);
 
 })();
