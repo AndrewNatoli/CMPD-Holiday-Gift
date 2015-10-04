@@ -16,21 +16,29 @@
                 <input ng-model="theMax">
               </md-input-container>
             </div>
-            ​
-            <div layout layout-sm="column">
+            ​<div layout layout-sm="column">
               <md-input-container flex>
                 <label>Date of Birth</label>
-                <input ng-model="user.dob">
+                          <input ng-model="user.dob">
+
               </md-input-container>
+
+             
               <md-input-container flex>
                 <label>Race</label>
                 <input ng-model="user.race">
               </md-input-container>
-              <md-input-container flex>
+                          </div>
+
+                 <md-input-container flex>
                 <label>Gender</label>
-                <input ng-model="user.gender">
-              </md-input-container>
-            </div>
+                                      </md-input-container>
+
+<md-radio-group ng-model="user.gender">
+      <md-radio-button value="Female" class="md-primary">Female</md-radio-button>
+      <md-radio-button value="Male"> Male </md-radio-button>
+    </md-radio-group>     
+
             <md-input-container flex>
               <label>Email</label>
               <input ng-model="user.email">
@@ -111,10 +119,18 @@
                 </md-option>
               </md-select>
             </md-input-container>
-            <md-input-container flex>
-              <label>Date</label>
-              <input ng-model="user.dateOfForm">
-            </md-input-container>
+            ​<div layout layout-sm="column">
+              <md-input-container flex>
+                <label>Form Date</label>
+              </md-input-container>
+
+              <md-input-container flex>
+                <md-datepicker ng-model="user.dateOfForm" md-placeholder="Enter date"></md-datepicker>
+              </md-input-container>
+            </div>
+             
+
+
             <h3>Child 1 Information</h3>
             <div layout layout-sm="column">
               <md-input-container flex>
@@ -127,29 +143,38 @@
               </md-input-container>
             </div>
             ​
-            <div layout layout-sm="column">
+         ​<div layout layout-sm="column">
               <md-input-container flex>
                 <label>Date of Birth</label>
-                <input ng-model="child.dob">
-              </md-input-container>
+                          <input ng-model="user.dob">
+
+                                        </div>
+
               <md-input-container flex>
                 <label>Gender</label>
-                <input ng-model="child.gender">
               </md-input-container>
-            </div>
+
+<md-radio-group ng-model="child.gender">
+                    <md-radio-button value="Female" class="md-primary">Female</md-radio-button>
+                    <md-radio-button value="Male"> Male </md-radio-button>
+                  </md-radio-group>        
+
             <md-input-container flex>
               <label>School Name</label>
               <input ng-model="child.schoolName">
             </md-input-container>
+
             <md-input-container flex>
               <label>School Address</label>
               <input ng-model="child.schoolAddress">
             </md-input-container>
+
             <div layout layout-sm="column">
               <md-input-container flex>
                 <label>City</label>
                 <input ng-model="child.schoolCity">
               </md-input-container>
+
               <md-input-container flex>
                 <label>State</label>
                 <md-select ng-model="child.schoolState">
@@ -158,15 +183,18 @@
                   </md-option>
                 </md-select>
               </md-input-container>
+
               <md-input-container flex>
                 <label>Postal Code</label>
                 <input ng-model="child.schoolPostalCode" placeholder="12345">
-                <md-input-container flex>
+                              </md-input-container>
+
+               
+            </div>
+             <md-input-container flex>
                   <label>School Phone</label>
                   <input ng-model="child.schoolePhone">
                 </md-input-container>
-              </md-input-container>
-            </div>
             <h3>Child 1 Gift Information</h3>
             <div layout layout-sm="column">
               <md-input-container flex>
