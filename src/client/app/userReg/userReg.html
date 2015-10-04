@@ -4,11 +4,10 @@
       <div class="row">
         <div class="widget wviolet">
           <div ht-widget-header title="{{vm.title}}"></div>
-          <form name="userReg" ng-submit="vm.createAccount(user)" novalidate>
-          <div class="widget-content user">
-            <h3>Set up new user</h3>
-            <md-content class="layout-padding md-default-theme">
-              
+          <form name="userRegForm" ng-submit="vm.createAccount(user)" novalidate>
+            <div class="widget-content user">
+              <h3>Set up new user</h3>
+              <md-content class="layout-padding md-default-theme">
                 <div layout layout-sm="column">
                   <md-input-container flex>
                     <label>First name</label>
@@ -19,152 +18,71 @@
                     <input ng-model="theMax">
                   </md-input-container>
                 </div>
-                ​
-                <md-input-container flex>
-                  <label>Title/Rank</label>
-                  <input ng-model="user.title">
-                </md-input-container>
-                <md-input-container flex>
-                  <label>Phone</label>
-                  <input ng-model="user.phone">
-                </md-input-container>
-                ​
-                <md-input-container flex>
-                  <label>Email</label>
-                  <input ng-model="user.email">
-                </md-input-container>
-                ​
-                <md-input-container flex>
-                  <label>Division Unit</label>
-                  <input ng-model="division.unit">
-                </md-input-container>
-                <md-input-container flex>
-                  <label>Division Phone</label>
-                  <input ng-model="division.phone">
-                </md-input-container>
-                <md-input-container flex>
-                  <label>Division Address</label>
-                  <input ng-model="division.address">
-                </md-input-container>
-                <div layout layout-sm="column">
+                <div layout layout-sm="column"> ​
                   <md-input-container flex>
-                    <label>City</label>
-                    <input ng-model="division.city">
+                    <label>Title/Rank</label>
+                    <input ng-model="user.title">
                   </md-input-container>
                   <md-input-container flex>
-                    <label>State</label>
-                    <md-select ng-model="division.userState">
-                      <md-option ng-repeat="state in division.states" value="{{state.abbrev}}">
-                        {{state.abbrev}}
+                    <label>Phone</label>
+                    <input ng-model="user.phone">
+                  </md-input-container>
+                  ​</div>
+                <div layout layout-sm="column">
+                  <md-input-container flex>
+                    <label>Email</label>
+                    <input ng-model="user.email">
+                  </md-input-container>
+                  ​
+                  <md-input-container flex>
+                    <label>User Type</label>
+                    <md-select ng-model="user.userType" ng-change="vm.userTypeChanged(user.userType)">
+                      <md-option ng-repeat="userType in vm.userTypes" value="{{userType}}">
+                        {{userType}}
                       </md-option>
                     </md-select>
                   </md-input-container>
-                  <md-input-container flex>
-                    <label>Postal Code</label>
-                    <input ng-model="division.postalCode" placeholder="12345">
-                  </md-input-container>
                 </div>
-                <md-input-container flex>
-                  <label>Fire Station</label>
-                  <input ng-model="station.name">
-                </md-input-container>
-                <md-input-container flex>
-                  <label>Station Phone</label>
-                  <input ng-model="Station.phone">
-                </md-input-container>
-                <md-input-container flex>
-                  <label>Station Address</label>
-                  <input ng-model="station.address">
-                </md-input-container>
-                <div layout layout-sm="column">
+                <div ng-if="user.userType">
+                  <h3>Address Information</h3>
                   <md-input-container flex>
-                    <label>City</label>
-                    <input ng-model="station.city">
+                    <label>{{vm.entityName}}</label>
+                    <input ng-model="user.address.name">
                   </md-input-container>
                   <md-input-container flex>
-                    <label>State</label>
-                    <md-select ng-model="station.userState">
-                      <md-option ng-repeat="state in station.states" value="{{state.abbrev}}">
-                        {{state.abbrev}}
-                      </md-option>
-                    </md-select>
+                    <label>{{vm.entity}} Phone</label>
+                    <input ng-model="user.address.phone">
                   </md-input-container>
                   <md-input-container flex>
-                    <label>Postal Code</label>
-                    <input ng-model="station.postalCode" placeholder="12345">
+                    <label>{{vm.entity}} Address</label>
+                    <input ng-model="user.address.street">
                   </md-input-container>
+                  <div layout layout-sm="column">
+                    <md-input-container flex>
+                      <label>City</label>
+                      <input ng-model="user.address.city">
+                    </md-input-container>
+                    <md-input-container flex>
+                      <label>State</label>
+                      <md-select ng-model="user.address.state">
+                        <md-option ng-repeat="state in vm.states" value="{{state.abbreviation}}">
+                          {{state.abbreviation}}
+                        </md-option>
+                      </md-select>
+                    </md-input-container>
+                    <md-input-container flex>
+                      <label>Postal Code</label>
+                      <input ng-model="division.postalCode" placeholder="12345">
+                    </md-input-container>
+                  </div>
                 </div>
-                <md-input-container flex>
-                  <label>School Name</label>
-                  <input ng-model="school.name">
-                </md-input-container>
-                <md-input-container flex>
-                  <label>School Phone</label>
-                  <input ng-model="school.phone">
-                </md-input-container>
-                <md-input-container flex>
-                  <label>School Address</label>
-                  <input ng-model="school.address">
-                </md-input-container>
-                <div layout layout-sm="column">
-                  <md-input-container flex>
-                    <label>City</label>
-                    <input ng-model="school.city">
-                  </md-input-container>
-                  <md-input-container flex>
-                    <label>State</label>
-                    <md-select ng-model="school.userState">
-                      <md-option ng-repeat="state in school.states" value="{{state.abbrev}}">
-                        {{state.abbrev}}
-                      </md-option>
-                    </md-select>
-                  </md-input-container>
-                  <md-input-container flex>
-                    <label>Postal Code</label>
-                    <input ng-model="school.postalCode" placeholder="12345">
-                  </md-input-container>
-                </div>
-                <md-input-container flex>
-                  <label>Agency Name</label>
-                  <input ng-model="agency.name">
-                </md-input-container>
-                <md-input-container flex>
-                  <label>Agency Phone</label>
-                  <input ng-model="agency.phone">
-                </md-input-container>
-                <md-input-container flex>
-                  <label>Agency Address</label>
-                  <input ng-model="agency.address">
-                </md-input-container>
-
-                <div layout layout-sm="column">
-                  <md-input-container flex>
-                    <label>City</label>
-                    <input ng-model="agency.city">
-                  </md-input-container>
-                  <md-input-container flex>
-                    <label>State</label>
-                    <md-select ng-model="agency.userState">
-                      <md-option ng-repeat="state in agency.states" value="{{state.abbrev}}">
-                        {{state.abbrev}}
-                      </md-option>
-                    </md-select>
-                  </md-input-container>
-                  <md-input-container flex>
-                    <label>Postal Code</label>
-                    <input ng-model="agecy.postalCode" placeholder="12345">
-                  </md-input-container>
-                </div>
-
-              
-              
-            </md-content>
-            ​
-          </div> <!-- end of widget user -->
-             <div class="buttonWrapper">
-      <md-button class="md-raised md-primary" ng-disabled="userReg.$invalid" type="submit">Submit</md-button>
-      <md-button class="md-raised md-warn">Clear</md-button>
-    </div>
+              </md-content>
+            </div>
+            <!-- end of widget user -->
+            <div class="buttonWrapper">
+              <md-button class="md-raised md-primary" ng-disabled="userRegForm.$invalid" type="submit">Submit</md-button>
+              <md-button class="md-raised md-warn">Clear</md-button>
+            </div>
           </form>
         </div>
         <div class="widget-foot">
@@ -173,6 +91,5 @@
       </div>
     </div>
     </div>
-   
   </section>
 </section>
