@@ -6,7 +6,7 @@
           <div ht-widget-header title="{{vm.title}}"></div>
           <form name="nominationForm" ng-submit="vm.createNomination(user)" novalidate>
             <div class="widget-content user">
-              <h3>Parent or Guardian Information</h3>
+              <h3>Head of Household Information</h3>
               <md-content class="layout-padding md-default-theme">
                 <div layout layout-sm="column">
                   <md-input-container flex>
@@ -106,9 +106,15 @@
                   <input ng-model="user.workPostalCode" placeholder="12345">
                 </md-input-container>
               </div>
+                            <div layout layout-sm="column">
+
               <md-input-container flex>
                 <label>Preferred Method of Notification </label>
-                <input ng-model="user.notification">
+                <md-select ng-model="user.preferredNotification">
+                  <md-option ng-repeat="method in user.preferredMethod" value="{{method}}">
+                    {{method}}
+                  </md-option>
+                </md-select>
               </md-input-container>
               <md-input-container flex>
                 <label>If preferred method is phone or text, which number?</label>
@@ -118,7 +124,7 @@
                   </md-option>
                 </md-select>
               </md-input-container>
-              ​
+              ​</div>
               <div layout layout-sm="column">
                 <md-input-container flex>
                   <label>Form Date</label>
